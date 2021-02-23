@@ -33,4 +33,5 @@ public class CustomerRestController {
         customerRepository.save(customer);
         return "Added customer with name : " + customer.getName();
     }
+
 }
