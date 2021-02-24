@@ -2,7 +2,7 @@
 
 ## About the Application
 
-This is a waiting list application that is used to put customers on a waiting list. The framework used was SpringBootand MongoDb to store data of the customers and restaurant. If the database connection works properly you are able to call REST endpoints defined below.
+This is a waiting list application that is used to put customers on a waiting list. I used the java framework Spring Boot and to store the data of the customers and restaurant I used MongoDB.
 
 
 ## How to build
