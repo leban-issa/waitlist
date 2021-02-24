@@ -2,7 +2,7 @@
 
 ## About the Application
 
-This is a waiting list application that is used to put customers on a waiting list. I used the java framework Spring Boot and to store the data of the customers and restaurant I used MongoDB.
+This is a waiting list application that is used to put customers of a restaurant on a waiting list. I used the java framework Spring Boot and to store the data of the customers and restaurant I used MongoDB.
 
 
 ## How to build
