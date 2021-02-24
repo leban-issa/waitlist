@@ -2,8 +2,10 @@ package com.waitlist.information.system.waitlist.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Document(collection = "Restaurant")
+@RequestMapping("/api")
 public class Restaurant {
     @Id
     private int id;
