@@ -34,11 +34,12 @@ Here are some endpoints you can call:
 * Get all restaurants http://localhost:8080/Restaurant/findAllRestaurants
 * Get restaurant by id http://localhost:8080/Restaurant/findAllRestaurants/{id}
 
-# To add a new customer, table, or restaurant.
+# To add a new customer, table, restaurant, or get count of customers.
 
 * http://localhost:8080/Customer/addCustomer
 * http://localhost:8080/Table/addTable
 * http://localhost:8080/Restaurant/addRestaurant
+* http://localhost:8080/Customer/customerCount
 
 # To view the Swagger2 API docs
 
