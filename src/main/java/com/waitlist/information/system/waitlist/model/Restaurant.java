@@ -10,15 +10,17 @@ public class Restaurant {
     @Id
     private int id;
     private String name;
-    private int lineLength;
+    private int phoneNumber;
+    private String address;
 
     public Restaurant() {
     }
 
-    public Restaurant(int id, String name, int lineLength) {
+    public Restaurant(int id, String name, int phoneNumber, String address) {
         this.id = id;
         this.name = name;
-        this.lineLength = lineLength;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     public int getId() {
@@ -37,12 +39,20 @@ public class Restaurant {
         this.name = name;
     }
 
-    public int getLineLength() {
-        return lineLength;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setLineLength(int lineLength) {
-        this.lineLength = lineLength;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
@@ -50,7 +60,8 @@ public class Restaurant {
         return "Restaurant{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lineLength=" + lineLength +
+                ", phoneNumber=" + phoneNumber +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

@@ -34,4 +34,9 @@ public class CustomerRestController {
         return "Added customer with name : " + customer.getName();
     }
 
+    @GetMapping("/customerCount")
+    public long countCustomers(){
+        return customerRepository.count();
+    }
+
 }

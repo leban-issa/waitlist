@@ -9,11 +9,12 @@ public class Customer {
     private String name;
     private String email;
     private String number;
+    private int partySize;
 
     public Customer() {
     }
 
-    public Customer(String name, String email, String number, int id) {
+    public Customer(String name, String email, String number, int id, int partySize) {
         this.name = name;
         this.email = email;
         this.number = number;
@@ -52,13 +53,22 @@ public class Customer {
         this.id = id;
     }
 
+    public int getPartySize() {
+        return partySize;
+    }
+
+    public void setPartySize(int partySize) {
+        this.partySize = partySize;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", number=" + number +
-                ", id='" + id + '\'' +
+                ", number='" + number + '\'' +
+                ", partySize=" + partySize +
                 '}';
     }
 }
