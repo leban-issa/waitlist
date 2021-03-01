@@ -11,16 +11,34 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        java-version: [11, 13, 15]
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 1.11
+    - name: Set up JDK 1.${{ matrix.java-version }}
       uses: actions/setup-java@v1
       with:
-        java-version: 1.11
+        java-version: 1.${{ matrix.java-version }}
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Test with Maven
       run: mvn test
+    - name: Run java checkstyle
+      uses: nikitasavinov/checkstyle-action@0.3.1
+      with:
+        # Report level for reviewdog [info,warning,error]
+        level: info
+        # Reporter of reviewdog command [github-pr-check,github-pr-review]
+        reporter: github-pr-check
+        # Filtering for the reviewdog command [added,diff_context,file,nofilter]. Default is `added`.
+        filter_mode: added
+        # Exit code for reviewdog when errors are found [true,false] Default is `false`.
+        fail_on_error: false
+        # Checkstyle config file
+        checkstyle_config: google_checks.xml
+        # Working directory relative to the root directory.
+        workdir: .
+        # Tool name to use for reviewdog reporter
+        tool_name: reviewdog
