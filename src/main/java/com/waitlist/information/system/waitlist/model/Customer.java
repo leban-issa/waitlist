@@ -5,20 +5,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Customer")
 public class Customer {
     @Id
-    private int id;
+    private String id;
     private String name;
     private String email;
-    private String number;
+    private String phone;
     private int partySize;
 
-    public Customer() {
-    }
-
-    public Customer(String name, String email, String number, int id, int partySize) {
+    public Customer(String name, String email, String phone, String id, int partySize) {
         this.name = name;
         this.email = email;
-        this.number = number;
+        this.phone = phone;
         this.id = id;
+        this.partySize = partySize;
     }
 
     public String getName() {
@@ -38,11 +36,11 @@ public class Customer {
     }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
