@@ -37,13 +37,6 @@ public class Customer {
         this.email = email;
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
 
     public int getId() {
         return id;
@@ -61,13 +54,21 @@ public class Customer {
         this.partySize = partySize;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", number='" + number + '\'' +
+                ", number='" + phone + '\'' +
                 ", partySize=" + partySize +
                 '}';
     }

@@ -12,7 +12,7 @@ public class Restaurant {
     private String name;
     private int phoneNumber;
     private String address;
-
+    //change address to object
     public Restaurant() {
     }
 

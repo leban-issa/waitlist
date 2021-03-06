@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/Customer")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CustomerRestController {
     @Autowired
     private CustomerRepository customerRepository;
@@ -29,14 +30,15 @@ public class CustomerRestController {
 
     @PostMapping("/addCustomer")
     public String addCustomer(@RequestBody Customer customer){
-
+        // TODO: Return metrics about how many customers where added
+        // Research Prometheus metrics
+        System.out.println(customer);
         customerRepository.save(customer);
         return "Added customer with name : " + customer.getName();
     }
 
     @GetMapping("/customerCount")
-    public long countCustomers(){
+    public long countCustomers() {
         return customerRepository.count();
     }
-
 }
