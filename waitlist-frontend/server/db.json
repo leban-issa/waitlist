@@ -1,0 +1,158 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Customer_1",
+      "email": "customer1@mail.com",
+      "phone": "00000000000",
+      "partySize": "6"
+    },
+    {
+      "id": 2,
+      "name": "Customer_2",
+      "email": "customer2@mail.com",
+      "phone": "00000000000",
+      "partySize": "4"
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "6",
+      "id": 4
+    },
+    {
+      "name": "Joe Joe",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "7777",
+      "id": 5
+    },
+    {
+      "name": "Joe Joe",
+      "email": "eee",
+      "phone": "54654",
+      "partySize": "6",
+      "id": 6
+    },
+    {
+      "name": "sss",
+      "email": "eee",
+      "phone": "222",
+      "partySize": "333",
+      "id": 7
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "5",
+      "id": 8
+    },
+    {
+      "name": "555",
+      "email": "777",
+      "phone": "999",
+      "partySize": "6",
+      "id": 9
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "444",
+      "id": 10
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "444",
+      "id": 11
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "444",
+      "id": 12
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "444",
+      "id": 13
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "444",
+      "id": 14
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "444",
+      "id": 15
+    },
+    {
+      "name": "Mohamed",
+      "email": "mmee@gmail.com",
+      "phone": "6477850851",
+      "partySize": "6",
+      "id": 16
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "333",
+      "id": 18
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "6",
+      "id": 19
+    },
+    {
+      "name": "Test",
+      "email": "test@test.com",
+      "phone": "12345577",
+      "partySize": "6",
+      "id": 20
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "555",
+      "id": 29
+    },
+    {
+      "name": "testtt",
+      "email": "testtstst@hotmail.com",
+      "phone": "44344",
+      "partySize": "6",
+      "id": 30
+    },
+    {
+      "name": "test",
+      "email": "test2@gmail.com",
+      "phone": "565567",
+      "partySize": "5",
+      "id": 31
+    },
+    {
+      "name": "Leban Issa",
+      "email": "lebanissa@hotmail.com",
+      "phone": "6477850851",
+      "partySize": "7",
+      "id": 32
+    }
+  ]
+}
