@@ -45,7 +45,7 @@ export default class Create extends React.Component<RouteComponentProps, IFormSt
 
         axios.post(`http://localhost:8080/Customer/addCustomer`, formData).then(data => [
             setTimeout(() => {
-                this.props.history.push('/');
+                this.props.history.push('/queue');
             }, 1500)
         ]);
     }
@@ -56,9 +56,6 @@ export default class Create extends React.Component<RouteComponentProps, IFormSt
             [e.currentTarget.name]: e.currentTarget.value,
         })
     }
-    // handleClick = () => {
-    //     this.props.history.push('queue');
-    // }
 
     public render() {
         const { submitSuccess, loading } = this.state;
