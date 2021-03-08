@@ -35,22 +35,13 @@ public class Customer {
         this.email = email;
     }
 
+    public String getId() { return id; }
 
-    public String getId() {
-        return id;
-    }
+    public void setId(String id) { this.id = id; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public int getPartySize() { return partySize; }
 
-    public int getPartySize() {
-        return partySize;
-    }
-
-    public void setPartySize(int partySize) {
-        this.partySize = partySize;
-    }
+    public void setPartySize(int partySize) { this.partySize = partySize; }
 
     public String getPhone() {
         return phone;
