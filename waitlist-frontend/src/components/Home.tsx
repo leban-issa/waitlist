@@ -16,14 +16,14 @@ export default class Home extends React.Component<RouteComponentProps, IState> {
             this.setState({ customers: data.data })
         })
     }
-    public deleteCustomer(id: number) {
-        axios.delete(`http://localhost:5000/customers/${id}`).then(data => {
+    public deleteCustomer(id: string) {
+        axios.delete(`http://localhost:8080/Customer/deleteById/${id}`).then(data => {
             const index = this.state.customers.findIndex(customer => customer.id === id);
-            this.state.customers.splice(index, 1);
+            // this.state.customers.splice(index, 1);
             this.props.history.push('/');
         })
     }
-public render() {
+    public render() {
         const customers = this.state.customers;
         return (
             <div>
@@ -36,31 +36,31 @@ public render() {
                     <div className="row">
                         <table className="table table-bordered">
                             <thead className="thead-light">
-                                <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Party Size</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Party Size</th>
+                                <th scope="col">Actions</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                {customers && customers.map(customer =>
-                                    <tr key={customer.id}>
-                                        <td>{customer.name}</td>
-                                        <td>{customer.email}</td>
-                                        <td>{customer.phone}</td>
-                                        <td>{customer.partySize}</td>
-                                        <td>
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <div className="btn-group" style={{ marginBottom: "20px" }}>
-                                                    <Link to={`edit/${customer.id}`} className="btn btn-sm btn-outline-secondary">Edit Customer </Link>
-                                                    <button className="btn btn-sm btn-outline-secondary" onClick={() => this.deleteCustomer(customer.id)}>Delete Customer</button>
-                                                </div>
+                            {customers && customers.map(customer =>
+                                <tr key={customer.id}>
+                                    <td>{customer.name}</td>
+                                    <td>{customer.email}</td>
+                                    <td>{customer.phone}</td>
+                                    <td>{customer.partySize}</td>
+                                    <td>
+                                        <div className="d-flex justify-content-between align-items-center">
+                                            <div className="btn-group" style={{ marginBottom: "20px" }}>
+                                                <Link to={`edit/${customer.id}`} className="btn btn-sm btn-outline-secondary">Edit Customer </Link>
+                                                <button className="btn btn-sm btn-outline-secondary" onClick={() => this.deleteCustomer(customer.id)}>Cancel Booking</button>
                                             </div>
-                                        </td>
-                                    </tr>
-                                )}
+                                        </div>
+                                    </td>
+                                </tr>
+                            )}
                             </tbody>
                         </table>
                     </div>
