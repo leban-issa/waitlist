@@ -14,17 +14,7 @@ export interface IFormState {
     values: IValues[];
     submitSuccess: boolean;
     loading: boolean;
-    errors : {
-        name :  string,
-        email : string,
-        phone : string,
-        partySize : string
-
-    }
 }
-
-const Regex = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
-const phoneRegex= RegExp(/^\d{3}\.\d{3}\.\d{4}$/i);
 
 export default class Create extends React.Component<RouteComponentProps, IFormState> {
     constructor(props: RouteComponentProps) {
@@ -37,13 +27,6 @@ export default class Create extends React.Component<RouteComponentProps, IFormSt
             values: [],
             loading: false,
             submitSuccess: false,
-            errors : {
-                name :  '',
-                email : '',
-                phone : '',
-                partySize : ''
-
-            }
         }
     }
 
