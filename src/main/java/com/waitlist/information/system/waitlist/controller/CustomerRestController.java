@@ -3,12 +3,22 @@ package com.waitlist.information.system.waitlist.controller;
 
 
 import com.waitlist.information.system.waitlist.model.Customer;
+import com.waitlist.information.system.waitlist.model.Restaurant;
 import com.waitlist.information.system.waitlist.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.server.ResponseStatusException;
 
 
+import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -18,6 +28,27 @@ public class CustomerRestController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    public CustomerRestController(CustomerRepository customerRepository){
+            this.customerRepository = customerRepository;
+    }
+
+    @PostMapping("/addCustomer")
+    public Customer addCustomer(@Valid @RequestBody Customer customer){
+        System.out.println(customer);
+        return customerRepository.save(customer);
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+
+        ex.getBindingResult().getFieldErrors().forEach(error ->
+                errors.put(error.getField(), error.getDefaultMessage()));
+
+        return errors;
+    }
+
     @GetMapping("/findAllCustomers")
     public List<Customer> getCustomers(){
         return customerRepository.findAll();
@@ -25,25 +56,15 @@ public class CustomerRestController {
 
     @GetMapping("/findAllCustomers/{id}")
     public Optional<Customer> getCustomerById(@PathVariable String id){
-
-        /***
-         * Make sure we validate that the id exists if it doesn't then send 400- bad request
-         */
-        return customerRepository.findById(id);
-    }
-
-    @PostMapping("/addCustomer")
-    public String addCustomer(@RequestBody Customer customer){
-        /***
-         *  Requirements:
-         *  - API must validate user input.
-         *  phoneNumber : 416-244-4444
-         *  - Make sure that Id is always null
-         *  - Look for edge cases where your api will fail.
-         */
+        Optional<Customer> customer = customerRepository.findById(id);
         System.out.println(customer);
-        customerRepository.save(customer);
-        return "Added customer with name : " + customer.getName();
+        if(!customer.isPresent() || customer == null){
+            System.out.println("Smoke: customer is present");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }else {
+            System.out.println("Smoke: customer not present");
+        }
+        return customer;
     }
 
     @GetMapping("/customerCount")
@@ -55,12 +76,11 @@ public class CustomerRestController {
     public void deleteCustomerById(@PathVariable String id){
         System.out.println(id);
         Optional<Customer> c = customerRepository.findById(id);
-        // TODO: Implement a check if id exists in the database before deleting and send a BAD_REQUEST http status
         if (c.isPresent()) {
             System.out.println("c = " + c.get());
             customerRepository.delete(c.get());
-        }else{
-            System.out.println(" ID = "+ id +" is not present");
+        } else{
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
 

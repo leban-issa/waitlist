@@ -2,13 +2,28 @@ package com.waitlist.information.system.waitlist.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.*;
+
 @Document(collection = "Customer")
 public class Customer {
     @Id
     private String id;
+
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
+
+    @NotEmpty(message = "Email cannot be empty")
+    @Email
     private String email;
+
+    @NotEmpty(message = "Phone number cannot be empty")
+    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+            message="Phone number is invalid")
     private String phone;
+
+    @NotNull(message = "Party size cannot be empty")
+    @Min(value = 1, message = "Party size cannot be less then 1")
     private int partySize;
 
     public Customer(String name, String email, String phone, String id, int partySize) {
