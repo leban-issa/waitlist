@@ -3,27 +3,36 @@ package com.waitlist.information.system.waitlist.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 @Document(collection = "Table")
 public class Table {
     @Id
-    private int id;
+    private String id;
+
+    @NotNull(message = "Party size cannot be empty")
+    @Min(value = 1, message = "Size cannot be less then 1")
     private int size;
+
+    @NotEmpty(message = "Location cannot be empty")
     private String location;
 
     public Table() {
     }
 
-    public Table(int id, int size, String location) {
+    public Table(String id, int size, String location) {
         this.id = id;
         this.size = size;
         this.location = location;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

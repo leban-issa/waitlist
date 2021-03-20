@@ -4,30 +4,41 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
 @Document(collection = "Restaurant")
 @RequestMapping("/api")
 public class Restaurant {
     @Id
-    private int id;
+    private String id;
+
+    @NotEmpty(message = "Name cannot be empty")
     private String name;
-    private int phoneNumber;
+
+    @NotEmpty(message = "Phone number cannot be empty")
+    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+            message="Phone number is invalid")
+    private String phoneNumber;
+
+    @NotEmpty(message = "Address cannot be empty")
     private String address;
     //change address to object
     public Restaurant() {
     }
 
-    public Restaurant(int id, String name, int phoneNumber, String address) {
+    public Restaurant(String id, String name, String phoneNumber, String address) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -39,11 +50,11 @@ public class Restaurant {
         this.name = name;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
