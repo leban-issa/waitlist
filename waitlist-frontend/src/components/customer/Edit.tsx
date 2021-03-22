@@ -7,7 +7,7 @@ export interface IValues {
 }
 
 export interface IFormState {
-    id: number,
+    id: string,
     customer: any;
     values: IValues[];
     submitSuccess: boolean;
@@ -27,7 +27,7 @@ class EditCustomer extends React.Component<RouteComponentProps<any>, IFormState>
     }
 
     public componentDidMount(): void {
-        axios.get(`http://localhost:5000/customers/${this.state.id}`).then(data => {
+        axios.get(` http://localhost:8080/Customer/findAllCustomers/${this.state.id}`).then(data => {
             this.setState({ customer: data.data });
         })
     }
@@ -35,10 +35,10 @@ class EditCustomer extends React.Component<RouteComponentProps<any>, IFormState>
     private processFormSubmission = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
         e.preventDefault();
         this.setState({ loading: true });
-        axios.patch(`http://localhost:5000/customers/${this.state.id}`, this.state.values).then(data => {
+        axios.put(` http://localhost:8080/Customer/findAllCustomers/${this.state.id}`, this.state.values).then(data => {
             this.setState({ submitSuccess: true, loading: false })
             setTimeout(() => {
-                this.props.history.push('/');
+                this.props.history.push('/customers');
             }, 1500)
         })
     }
@@ -59,7 +59,7 @@ class EditCustomer extends React.Component<RouteComponentProps<any>, IFormState>
             <div className="App">
                 {this.state.customer &&
                     <div>
-                        < h1 > Customer List Management</h1>
+                        < h1 > </h1>
                         
 
 

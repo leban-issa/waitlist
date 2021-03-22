@@ -6,7 +6,7 @@ interface IState {
     customers: any[];
 }
 
-export default class Home extends React.Component<RouteComponentProps, IState> {
+export default class CustomerManagement extends React.Component<RouteComponentProps, IState> {
     constructor(props: RouteComponentProps) {
         super(props);
         this.state = { customers: [] }
@@ -54,6 +54,7 @@ export default class Home extends React.Component<RouteComponentProps, IState> {
                                     <td>
                                         <div className="d-flex justify-content-between align-items-center">
                                             <div className="btn-group" style={{ marginBottom: "20px" }}>
+                                                <Link to={`edit/${customer.id}`} className="btn btn-sm btn-outline-secondary">Edit Customer </Link>
                                                 <button className="btn btn-sm btn-outline-secondary" onClick={() => this.deleteCustomer(customer.id)}>Cancel Booking</button>
                                             </div>
                                         </div>
@@ -68,5 +69,3 @@ export default class Home extends React.Component<RouteComponentProps, IState> {
         )
     }
 }
-
-

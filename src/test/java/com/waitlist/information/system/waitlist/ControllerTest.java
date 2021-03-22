@@ -133,7 +133,7 @@ public class ControllerTest {
 
     @Test
     public void postRequestAddValidRestaurant() throws Exception{
-        Restaurant restaurant = new Restaurant("","Pizza Land","416-555-5555","123 Street" );
+        Restaurant restaurant = new Restaurant("","Pizza Land","416-555-5555","123 Street","password1" );
         Mockito.when(restaurantRestController.addRestaurant(Mockito.any(Restaurant.class))).thenReturn(restaurant);
         MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/Restaurant/addRestaurant")
                 .contentType(MediaType.APPLICATION_JSON_VALUE).accept(MediaType.APPLICATION_JSON)
@@ -145,7 +145,7 @@ public class ControllerTest {
 
     @Test
     public void postRequestAddInvalidRestaurant() throws Exception{
-        Restaurant restaurant = new Restaurant("","","416-555-5555","123 Street" );
+        Restaurant restaurant = new Restaurant("","","416-555-5555","123 Street", "password1" );
         String restaurantJsonString = this.mapper.writeValueAsString(restaurant);
         ResultActions resultActions = mvc.perform(MockMvcRequestBuilders.post("/Restaurant/addRestaurant")
                 .contentType(MediaType.APPLICATION_JSON).content(restaurantJsonString)).andExpect(status().isBadRequest());
@@ -158,8 +158,8 @@ public class ControllerTest {
     @Test
     public void getAllRestaurants() throws Exception{
         List<Restaurant> restaurantList = new ArrayList<>();
-        Restaurant restaurant1 = new Restaurant("2","Pizza Land","416-555-5555","123 Street" );
-        Restaurant restaurant2 = new Restaurant("3","Best Pasta","416-444-4444","255 Street" );
+        Restaurant restaurant1 = new Restaurant("2","Pizza Land","416-555-5555","123 Street","password1" );
+        Restaurant restaurant2 = new Restaurant("3","Best Pasta","416-444-4444","255 Street", "password2" );
         restaurantList.add(restaurant1);
         restaurantList.add(restaurant2);
         when(restaurantRestController.getRestaurant()).thenReturn(restaurantList);
@@ -171,7 +171,7 @@ public class ControllerTest {
     @Test
     public void getRestaurantById() throws Exception{
         String restaurantId = "100";
-        Restaurant restaurant = new Restaurant(restaurantId,"Pizza Land","416-555-5555","123 Street" );
+        Restaurant restaurant = new Restaurant(restaurantId,"Pizza Land","416-555-5555","123 Street","password" );
         given(restaurantRestController.getRestaurantById(restaurantId)).willReturn(Optional.of(restaurant));
         mvc.perform(MockMvcRequestBuilders.get("/Restaurant/findAllRestaurants/{id}", restaurantId)
                 .contentType(MediaType.APPLICATION_JSON))

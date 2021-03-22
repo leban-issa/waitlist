@@ -23,15 +23,19 @@ public class Restaurant {
 
     @NotEmpty(message = "Address cannot be empty")
     private String address;
+
+    @NotEmpty(message = "Password cannot be empty")
+    private String password;
     //change address to object
     public Restaurant() {
     }
 
-    public Restaurant(String id, String name, String phoneNumber, String address) {
+    public Restaurant(String id, String name, String phoneNumber, String address, String password) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.password = password;
     }
 
     public String getId() {
@@ -64,6 +68,14 @@ public class Restaurant {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
