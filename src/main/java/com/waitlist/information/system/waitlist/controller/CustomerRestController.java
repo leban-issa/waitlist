@@ -1,7 +1,6 @@
 package com.waitlist.information.system.waitlist.controller;
 
 
-
 import com.waitlist.information.system.waitlist.model.Customer;
 import com.waitlist.information.system.waitlist.model.Restaurant;
 import com.waitlist.information.system.waitlist.repository.CustomerRepository;
@@ -28,12 +27,12 @@ public class CustomerRestController {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public CustomerRestController(CustomerRepository customerRepository){
-            this.customerRepository = customerRepository;
+    public CustomerRestController(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 
     @PostMapping("/addCustomer")
-    public Customer addCustomer(@Valid @RequestBody Customer customer){
+    public Customer addCustomer(@Valid @RequestBody Customer customer) {
         System.out.println(customer);
         return customerRepository.save(customer);
     }
@@ -45,26 +44,43 @@ public class CustomerRestController {
 
         ex.getBindingResult().getFieldErrors().forEach(error ->
                 errors.put(error.getField(), error.getDefaultMessage()));
-
         return errors;
     }
 
     @GetMapping("/findAllCustomers")
-    public List<Customer> getCustomers(){
+    public List<Customer> getCustomers() {
         return customerRepository.findAll();
     }
 
     @GetMapping("/findAllCustomers/{id}")
-    public Optional<Customer> getCustomerById(@PathVariable String id){
+    public Optional<Customer> getCustomerById(@PathVariable String id) {
         Optional<Customer> customer = customerRepository.findById(id);
         System.out.println(customer);
-        if(!customer.isPresent() || customer == null){
+        if (!customer.isPresent() || customer == null) {
             System.out.println("Smoke: customer is present");
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }else {
+        } else {
             System.out.println("Smoke: customer not present");
         }
         return customer;
+    }
+
+    @PutMapping("/findAllCustomers/{id}")
+    public Customer updateCustomer(@PathVariable String id, @RequestBody Customer customer) {
+        Optional<Customer> optionalCustomer = customerRepository.findById(id);
+        if (optionalCustomer.isPresent()) {
+            Customer c = optionalCustomer.get();
+            if (customer.getEmail() != null)
+                c.setEmail(customer.getEmail());
+            if (customer.getName() != null)
+                c.setName(customer.getName());
+            if (customer.getPartySize() != 0)
+                c.setPartySize(customer.getPartySize());
+            if (customer.getPhone() != null)
+                c.setPhone(customer.getPhone());
+            return customerRepository.save(c);
+        } else
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/customerCount")
@@ -73,13 +89,13 @@ public class CustomerRestController {
     }
 
     @DeleteMapping("/deleteById/{id}")
-    public void deleteCustomerById(@PathVariable String id){
+    public void deleteCustomerById(@PathVariable String id) {
         System.out.println(id);
         Optional<Customer> c = customerRepository.findById(id);
         if (c.isPresent()) {
             System.out.println("c = " + c.get());
             customerRepository.delete(c.get());
-        } else{
+        } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }

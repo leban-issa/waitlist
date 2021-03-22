@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/Restaurant")
+@CrossOrigin(origins = "http://localhost:3000")
 public class RestaurantRestController {
     @Autowired
     private RestaurantRepository restaurantRepository;
