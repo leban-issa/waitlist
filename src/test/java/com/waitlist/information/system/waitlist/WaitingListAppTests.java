@@ -42,7 +42,7 @@ import java.util.Optional;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ControllerTest {
+public class WaitingListAppTests {
 
     @Autowired
     private MockMvc mvc;
