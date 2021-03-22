@@ -19,9 +19,13 @@ public class Table {
     @NotEmpty(message = "Location cannot be empty")
     private String location;
 
-    public Table() {
-    }
 
+    /**
+     * Constructor for table.
+     * @param id for table
+     * @param size for table
+     * @param location for table
+     */
     public Table(String id, int size, String location) {
         this.id = id;
         this.size = size;
