@@ -25,6 +25,10 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Test with Maven
       run: mvn test
+    - name: setup-chromedriver
+    # You may pin to the exact commit or the version.
+    # uses: nanasess/setup-chromedriver@835cae695490330a7e390033b2b5bd67e6f8055e
+      uses: nanasess/setup-chromedriver@v1.0.1
     - name: Run java checkstyle
       uses: nikitasavinov/checkstyle-action@0.3.1
       with:
