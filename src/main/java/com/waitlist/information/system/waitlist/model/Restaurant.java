@@ -17,8 +17,8 @@ public class Restaurant {
     private String name;
 
     @NotEmpty(message = "Phone number cannot be empty")
-    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
-            message="Phone number is invalid")
+    @Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+            message = "Phone number is invalid")
     private String phoneNumber;
 
     @NotEmpty(message = "Address cannot be empty")
@@ -27,9 +27,15 @@ public class Restaurant {
     @NotEmpty(message = "Password cannot be empty")
     private String password;
     //change address to object
-    public Restaurant() {
-    }
 
+    /**
+     * Constructor for restaurant.
+     * @param id restaurant
+     * @param name restaurant
+     * @param phoneNumber restaurant
+     * @param address restaurant
+     * @param password restaurant
+     */
     public Restaurant(String id, String name, String phoneNumber, String address, String password) {
         this.id = id;
         this.name = name;
@@ -80,11 +86,16 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", address='" + address + '\'' +
+        return "Restaurant{"
+            +
+                "id=" + id
+            +
+                ", name='" + name + '\''
+            +
+                ", phoneNumber=" + phoneNumber
+            +
+                ", address='" + address + '\''
+            +
                 '}';
     }
 }
