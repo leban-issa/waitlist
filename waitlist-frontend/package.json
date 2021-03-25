@@ -6,6 +6,8 @@
     "@okta/okta-auth-js": "^4.8.0",
     "@okta/okta-react": "^5.0.0",
     "@okta/okta-signin-widget": "^2.21.0",
+    "@optimizely/js-sdk-datafile-manager": "^0.8.0",
+    "@optimizely/react-sdk": "^2.5.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -52,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@optimizely/js-sdk-event-processor": "^0.8.0",
     "eslint-plugin-jest": "^24.2.1",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1"
