@@ -109,7 +109,7 @@ export default class Create extends React.Component<RouteComponentProps, IFormSt
                         </div>
 
                         <div className="form-group col-md-4 pull-right">
-                            <button className="btn btn-success" type="submit" >
+                            <button className="btn btn-success" type="submit" id="submitButton" >
                                 Join Waitlist
                             </button>
                             {loading &&

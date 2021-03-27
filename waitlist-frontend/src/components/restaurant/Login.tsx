@@ -78,7 +78,7 @@ export default class Login extends React.Component<RouteComponentProps, IFormSta
                         </div>
 
                         <div className="form-group col-md-4 pull-right">
-                            <button className="btn btn-success" type="submit" >
+                            <button className="btn btn-success" type="submit" id="submitButton" >
                                 Login
                             </button>
                             {loading &&
