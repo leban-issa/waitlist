@@ -23,8 +23,8 @@ jobs:
         java-version: 1.${{ matrix.java-version }}
     - name: Install Google Chrome
       run: |
-       chmod +x ./InstallChrome.sh
-        ./InstallChrome.sh    
+       chmod +x ./scripts/InstallChrome.sh
+        ./scripts/InstallChrome.sh
     - name: Build and Test with Maven
       run: mvn -B package -Dtest=WaitingListAppTests --file pom.xml
     - name: Run java checkstyle
