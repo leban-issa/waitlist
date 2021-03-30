@@ -1,4 +1,4 @@
-# Waiting List App
+# Waiting List API
 
 ## About the Application
 
