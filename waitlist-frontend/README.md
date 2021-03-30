@@ -1,6 +1,6 @@
 # Waiting List App
 
-A react web app for a restaurant that assists customers to sign up and join a waitlist of a restaurant and cancel their booking. Restaurants are also able to sign up to use this service and are able to edit customers and cancel their bookings as well.
+A react web app for a restaurant using React Typescript that assists customers to sign up and join a waitlist of a restaurant and cancel their booking. Restaurants are also able to sign up to use this service and are able to edit customers and cancel their bookings as well.
 
 ## Installation and Setup Instructions
 
@@ -20,6 +20,9 @@ To run this app locally run `npm start` which Runs the app in the development mo
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+
+
 
 
 
