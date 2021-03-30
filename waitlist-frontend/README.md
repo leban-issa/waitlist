@@ -1,10 +1,14 @@
 # Waiting List App
 
-A react web app for a restaurant that assists customers to sign up and join a waitlist. It also allows the restaurant to manage the customers and check them in when they arrive.
+A react web app for a restaurant that assists customers to sign up and join a waitlist of a restaurant and cancel their booking. Restaurants are also able to sign up to use this service and are able to edit customers and cancel their bookings as well.
 
 ## Installation and Setup Instructions
 
-To clone this repositoyr you will need node and npm installed globally on your machine.
+To clone this repository you will need node and npm installed globally on your machine.
+
+## Demo
+
+![React App](https://user-images.githubusercontent.com/60042716/113023794-06112780-9154-11eb-8112-8733822a1843.gif)
 
 ### `Installation`
 
@@ -17,15 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
 
