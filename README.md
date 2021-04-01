@@ -53,6 +53,7 @@ Once that is done create a cluster select your preferred cloud provider and regi
 The next step is to add your current IP address to set up a connection.
 Then create a new username and password to access your database and collections to your cluster.
 After that is all done download MongoDB Compass which allows you to connect to your database and create new collections.
+
 For a more detailed explanation follow this link https://docs.atlas.mongodb.com/getting-started/.
 
 # Here are some endpoints you can call:
