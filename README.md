@@ -22,7 +22,7 @@ mvn springboot:run
 ```
 
 ## How to test
-There are two tests in this application one that tests all the endpoints in the backend called Waitlist App Tests and another test called Integration Test that tests both the front end and backend. To run both tests you would first need the front end for the Integration tests the command to run the front end is below and once the that is done you will be able to run both tests together using another command below.
+There are two tests in this application one that tests all the endpoints in the backend called Waitlist App Tests and another test called Integration Test that tests both the front end and backend. To run both tests you would first need the front end running for the Integration tests the command to run the front end is below and once the that is done you will be able to run both tests together using another command below.
 
 to run the front end:
 ```bash
