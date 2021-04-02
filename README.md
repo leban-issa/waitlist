@@ -56,6 +56,17 @@ After that is all done download MongoDB Compass which allows you to connect to y
 
 For a more detailed explanation follow this link https://docs.atlas.mongodb.com/getting-started/.
 
+## Setting up Feature Flags
+* To set up any of your own customer feature flags you must first create an account on Optimizely https://www.optimizely.com/rollouts-signup/?utm_campaign=asa-react-flags-video.
+* * Once that is done you must install the Install the Optimizely React SDK the command to install it is below.
+```bash
+npm install --save @optimizely/react-sdk
+``` 
+* You then create a feature flag and instantiate Optimizely in your React App
+* Once this is set up you will be able to create your own feature flag and set it up.
+* For more information here is a link to a tutorial on implementing a feature flag in your react app. 
+https://www.youtube.com/watch?v=A8eoGwDhz0k
+
 # Here are some endpoints you can call:
 
 ## Get information about customer, table, and restaurant.
