@@ -7,5 +7,12 @@ services:
     restart: always
     environment:
       - SPRING_DATA_MONGODB_URI=${SPRING_DATA_MONGODB_URI}
+      - SPRING_DATA_MONGODB_DATABASE=${SPRING_DATA_MONGODB_DATABASE}
     ports:
       - "8080:8080"
+
+  spring-web-api:
+    build: web
+    restart: always
+    ports:
+      - "3000:3000"
