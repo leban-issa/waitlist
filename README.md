@@ -1,13 +1,18 @@
-# Waiting List API
+# Waiting List APP
 
 ## About the Application
 
 This is a waiting list application that is used to put customers of a restaurant on a waiting list. I used the java framework Spring Boot and to store the data of the customers and restaurant I used MongoDB. Several endpoints have been created and all the API's are documented using Swagger2 which you can find below. 
 
+## Demo
+
+![React App](https://user-images.githubusercontent.com/60042716/113023794-06112780-9154-11eb-8112-8733822a1843.gif)
+
 
 ## How to build
 To run this application you must do the following below.
 * Clone this repository
+* Have node and npm installed locally on your machine
 * Make sure that you are using JDK 11, 13, or 15 and have Maven installed.
 * Once the application is succesfully build you can run it with one of these two methods. 
 
@@ -20,7 +25,18 @@ or run:
 ```bash
 mvn spring-boot:run  
 ```
-## Envorinment Variable
+### `Installation`
+
+To install the application run `npm install` which will download all the packages and dependencies for the application.
+
+### `To Run Application Front End` 
+
+To run this app locally run `npm start` which Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+## Environment Variable
 
 You will need to set these environment variables when running locally
 
