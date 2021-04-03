@@ -18,8 +18,17 @@ docker build -t liben/spring-demo .
 or run:
 
 ```bash
-mvn springboot:run
+mvn spring-boot:run  
 ```
+## Envorinment Variable
+
+You will need to set these environment variables when running locally
+
+Env Var                         | Description
+------------------------------- | -------------------------------------------------------------
+SPRING_DATA_MONGODB_DATABASE    | Name of the database which is used for data storage
+SPRING_DATA_MONGODB_URI         | Database connection string used to connect to the database
+
 
 ## How to test
 There are two tests in this application one that tests all the endpoints in the backend called Waitlist App Tests and another test called Integration Test that tests both the front end and backend. To run both tests you would first need the front end running for the Integration tests the command to run the front end is below and once the that is done you will be able to run both tests together using another command below.
@@ -88,7 +97,6 @@ https://www.youtube.com/watch?v=A8eoGwDhz0k
 ## To view the Swagger2 API docs
 
 * http://localhost:8080/swagger-ui.html#
-
 
 
 
