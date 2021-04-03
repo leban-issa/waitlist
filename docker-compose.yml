@@ -6,13 +6,39 @@ services:
     build: .
     restart: always
     environment:
-      - SPRING_DATA_MONGODB_URI=${SPRING_DATA_MONGODB_URI}
-      - SPRING_DATA_MONGODB_DATABASE=${SPRING_DATA_MONGODB_DATABASE}
+      - SPRING_DATA_MONGODB_URI=mongodb://dbUser:dbPassword@mongodb:27017/WaitingDB?authSource=admin&ssl=false
+      - SPRING_DATA_MONGODB_DATABASE=WaitingDB
+    depends_on:
+      - mongodb
     ports:
       - "8080:8080"
+    networks:
+      - backend
 
   spring-web-api:
     build: web
     restart: always
     ports:
       - "3000:3000"
+    networks:
+      - backend
+  mongodb:
+    image: mongo:4.0.8
+    container_name: mongodb
+    restart: unless-stopped
+    command: mongod --auth
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: dbUser
+      MONGO_INITDB_ROOT_PASSWORD: dbPassword
+      MONGO_INITDB_DATABASE: WaitingDB
+      MONGODB_DATA_DIR: /data/db
+      MONDODB_LOG_DIR: /dev/null
+    volumes:
+      - ./data/mongo_db:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - backend
+
+networks:
+  backend:
