@@ -17,7 +17,7 @@ To run this application you must do the following below.
 * Once the application is succesfully build you can run it with one of these two methods. 
 
 ```bash
-docker build -t liben/spring-demo .
+docker-compose -up .
 ```
 
 or run:
